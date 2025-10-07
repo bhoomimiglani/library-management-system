@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head><title>Library</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header>
+<h1>Library Management System</h1>
+<a href="/logout">Logout</a>
+</header>
+<div class="container">
+<a href="/add">Add Book</a>
+<table>
+<thead>
+<tr>
+<th>Cover</th><th>Title</th><th>Author</th><th>Year</th><th>Status</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<% books.forEach(book=>{ %>
+<tr>
+<td><% if(book.cover){ %><img src="<%= book.cover %>" class="cover"><% } %></td>
+<td data-label="Title"><%= book.title %></td>
+<td data-label="Author"><%= book.author %></td>
+<td data-label="Year"><%= book.year %></td>
+<td data-label="Status"><%= book.available ? "Available" : "Issued to "+book.issuedTo %></td>
+<td data-label="Actions">
+<a href="/edit/<%= book._id %>">Edit</a>
+<a class="delete" href="/delete/<%= book._id %>">Delete</a>
+<% if(book.available){ %>
+<form action="/issue/<%= book._id %>" method="POST" style="display:inline">
+<input type="text" name="user" placeholder="User Name" required>
+<button type="submit">Issue</button>
+</form>
+<% } else { %>
+<a class="return" href="/return/<%= book._id %>">Return</a>
+<% } %>
+</td>
+</tr>
+<% }) %>
+</tbody>
+</table>
+</div>
+</body>
+</html>
