@@ -1,0 +1,153 @@
+:root {
+    --primary: #1abc9c;
+    --secondary: #121212;
+    --text: #f1f1f1;
+    --bg-light: #1e1e1e;
+    --table-header: #2c2c2c;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+    --button-bg: #1abc9c;
+    --button-hover: #16a085;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --issue: #f39c12;
+}
+
+* { box-sizing: border-box; }
+body { 
+    margin:0; 
+    font-family:'Arial',sans-serif; 
+    background: var(--secondary); 
+    color: var(--text);
+}
+
+/* Header */
+header { 
+    background: var(--primary); 
+    color: #fff; 
+    padding: 1rem 2rem; 
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Main container */
+.container { 
+    max-width: 900px; 
+    margin: 2rem auto; 
+    background: var(--bg-light); 
+    padding: 2rem; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Buttons */
+a, button { 
+    text-decoration: none; 
+    padding: 8px 16px; 
+    margin: 3px; 
+    border-radius: 6px; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+a { 
+    display: inline-block;
+    background: var(--button-bg); 
+    color: #fff;
+}
+a:hover { background: var(--button-hover); }
+
+button { 
+    background: var(--issue); 
+    color: #fff; 
+}
+button:hover { background: #d35400; }
+
+button.return { background: var(--button-bg);}
+button.return:hover { background: var(--button-hover);}
+button.delete { background: var(--danger);}
+button.delete:hover { background: #c0392b; }
+
+/* Forms */
+form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+input[type="text"], input[type="number"], input[type="password"], input[type="file"] { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid var(--input-border); 
+    border-radius: 6px; 
+    background: var(--input-bg); 
+    color: var(--text);
+}
+
+input::placeholder { color: #aaa; }
+
+/* Table */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td { 
+    padding: 12px; 
+    text-align: left; 
+}
+
+th { 
+    background: var(--table-header); 
+    font-weight: bold;
+}
+
+td { 
+    background: var(--bg-light); 
+    border-bottom: 1px solid #333;
+}
+
+img.cover { 
+    width: 60px; 
+    height: 80px; 
+    object-fit: cover; 
+    border-radius: 6px;
+}
+
+/* Responsive table */
+@media(max-width:768px){
+  table, thead, tbody, th, td, tr { display:block; }
+  th, td { text-align:right; padding-left:50%; position:relative; }
+  th::before, td::before { position:absolute; left:12px; width:45%; white-space:nowrap; font-weight:bold; }
+  th:nth-of-type(1)::before { content:"Cover"; }
+  th:nth-of-type(2)::before { content:"Title"; }
+  th:nth-of-type(3)::before { content:"Author"; }
+  th:nth-of-type(4)::before { content:"Year"; }
+  th:nth-of-type(5)::before { content:"Status"; }
+  th:nth-of-type(6)::before { content:"Actions"; }
+  td::before { content: attr(data-label); }
+}
+
+/* Center login/register forms vertically */
+body.login, body.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Card container for forms */
+.container form {
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* Buttons full width for forms */
+form button, form a { width: 100%; text-align: center; }
