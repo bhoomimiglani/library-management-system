@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Book</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><h1>Add Book</h1></header>
+<div class="container">
+<form action="/add" method="POST" enctype="multipart/form-data">
+<input type="text" name="title" placeholder="Title" required>
+<input type="text" name="author" placeholder="Author">
+<input type="number" name="year" placeholder="Year">
+<input type="file" name="cover">
+<button type="submit">Add Book</button>
+</form>
+<a href="/">Back</a>
+</div>
+</body>
+</html>

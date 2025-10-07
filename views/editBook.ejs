@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Book</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><h1>Edit Book</h1></header>
+<div class="container">
+<form action="/edit/<%= book._id %>" method="POST" enctype="multipart/form-data">
+<input type="text" name="title" value="<%= book.title %>" required>
+<input type="text" name="author" value="<%= book.author %>">
+<input type="number" name="year" value="<%= book.year %>">
+<input type="file" name="cover">
+<button type="submit">Update Book</button>
+</form>
+<a href="/">Back</a>
+</div>
+</body>
+</html>
